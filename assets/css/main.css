@@ -3172,3 +3172,15 @@ a.gform:focus {
 footer#indep{
 		margin:0em;
 	}
+
+#news-events {
+  text-align: center;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+a.image.featured.news {
+	margin-bottom: 3%;
+}
