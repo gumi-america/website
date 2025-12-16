@@ -3173,17 +3173,7 @@ footer#indep{
 		margin:0em;
 	}
 
-#news-events {
-  text-align: center;
-  width: 100%;
-  margin-left: auto;
-  margin-right: auto;
-}
 
-
-a.image.featured.news {
-	margin-bottom: 3%;
-}
 
 
 .icon-large {
@@ -3191,3 +3181,78 @@ a.image.featured.news {
   font-size: 3em; 
 }
 
+
+/* --- News & Events Custom Responsive Layout --- */
+
+/* 1. Desktop Layout (Three Columns) */
+#news-section .events-row {
+    /* Use flexbox for a standard three-column layout on wide screens */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between; /* Space them out evenly */
+    margin: 0;
+}
+
+#news-section .event-article {
+    /* Set each article to slightly less than 33.33% to account for gaps */
+    width: 32%; 
+    margin-bottom: 3em; /* Add some bottom margin for spacing */
+    box-sizing: border-box; /* Include padding and border in the element's total width/height */
+}
+
+/* 2. Mobile Layout (Stacked Columns - Applies up to 736px) */
+@media screen and (max-width: 736px) {
+
+    #news-section .events-row {
+        /* On small screens, we still use flex, but allow items to take up full width */
+        display: block; /* A simple block display can be easier than flex for pure stacking */
+    }
+
+    #news-section .event-article {
+        /* Force full width on mobile */
+        width: 100%;
+        
+        /* The base CSS for section/article already provides vertical margin on mobile
+           (margin-bottom: 2em;), but we ensure it's stacked clearly. */
+    }
+}
+
+/* --- Contact Us Custom Responsive Layout --- */
+
+/* 1. Desktop Layout (Two Columns) */
+#footer .contact-row {
+    /* Use flexbox for a standard two-column layout on wide screens */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 0;
+}
+
+#footer .contact-column {
+    /* Set each column to slightly less than 50% to account for gaps */
+    width: 48%; 
+    margin-bottom: 3em; /* Add some bottom margin for spacing */
+    box-sizing: border-box; 
+}
+
+/* 2. Mobile Layout (Stacked Columns - Applies up to 736px) */
+@media screen and (max-width: 736px) {
+
+    #footer .contact-row {
+        /* Switch to block display for stacking */
+        display: block; 
+    }
+
+    #footer .contact-column {
+        /* Force full width on mobile */
+        width: 100%;
+        
+        /* Add some vertical separation between the two stacked columns */
+        margin-bottom: 3em; 
+    }
+    
+    /* The second column should not have a bottom margin on mobile */
+    #footer .contact-column:last-child {
+        margin-bottom: 0;
+    }
+}
