@@ -1,11 +1,6 @@
 @import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300italic,400,400italic,600");
 @import url("fontawesome-all.min.css");
 
-/*
-	Helios by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
-*/
 
 html, body, div, span, applet, object,
 iframe, h1, h2, h3, h4, h5, h6, p, blockquote,
@@ -76,6 +71,7 @@ input, select, textarea {
 
 	html {
 		box-sizing: border-box;
+		scroll-behavior: smooth;
 	}
 
 	*, *:before, *:after {
@@ -2289,14 +2285,17 @@ input, select, textarea {
 /* Nav */
 
 	#nav {
-		position: absolute;
+		position: fixed;
 		top: 0;
 		left: 0;
 		width: 100%;
 		text-align: center;
-		padding: 1.5em 0 1.5em 0;
-		z-index: 1;
+		padding: 1em 0;
+		z-index: 10000;
 		overflow: hidden;
+		background: transparent;
+
+		transition: background 1s ease, padding 0.4s ease;
 	}
 
 		#nav > ul {
@@ -3255,4 +3254,37 @@ footer#indep{
     #footer .contact-column:last-child {
         margin-bottom: 0;
     }
+}
+
+/* NAVBAR SCROLL */ 
+/* Updated for a white, clean appearance when scrolled */
+#nav.scrolled {
+    background: rgba(255, 255, 255, 0.98); /* Solid white with slight transparency */
+    backdrop-filter: blur(50px);          /* Frosted glass effect */
+    padding: 0.5em 0;                     /* Slimmer bar on scroll */
+    border-bottom: 1px solid #e5e5e5;      /* Subtle line to separate from content */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05); /* Very soft shadow */
+}
+
+/* Change link colors to dark so they are readable on white */
+#nav.scrolled > ul > li > a {
+    color: #483949; /* Matching your header color in main.css */
+}
+
+/* Optional: Active/Hover state color on white background */
+#nav.scrolled > ul > li > a:hover {
+    color: #ef8376; /* Matching your theme's hover color */
+}
+
+/* Ensure the border lines on the side of the UL also change color */
+#nav.scrolled > ul {
+    border-left-color: rgba(0, 0, 0, 0.1);
+    border-right-color: rgba(0, 0, 0, 0.1);
+}
+
+/* Update the pseudo-elements (top/bottom lines) to be dark or hidden */
+#nav.scrolled > ul:before, 
+#nav.scrolled > ul:after {
+    border-top-color: rgba(0, 0, 0, 0.1);
+    border-bottom-color: rgba(0, 0, 0, 0.1);
 }
