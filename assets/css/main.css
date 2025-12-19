@@ -3571,3 +3571,90 @@ footer#indep{
     margin-bottom: 2em;
     color: #5b5b5b;
 }
+
+/* Styling for the parent logo in the header footer */
+.parent-logo-hero {
+    display: inline-block;
+    border: none !important; /* Removes the default link underline */
+    margin-bottom: 1.5em;    /* Spacing between logo and Start button */
+    transition: opacity 0.3s ease;
+}
+
+.parent-logo-hero img {
+    height: 40px;            /* Slightly larger than the navbar version for visibility */
+    width: auto;
+    display: block;
+    margin: 0 auto;
+    /* Optional: If the logo is dark, make it white to stand out against the background image */
+    filter: brightness(0) invert(1); 
+}
+
+.parent-logo-hero:hover {
+    opacity: 0.7;
+    border: none !important;
+}
+
+/* Adjust mobile sizing */
+@media screen and (max-width: 736px) {
+    .parent-logo-hero img {
+        height: 30px;
+    }
+}
+
+/* Header Downward Arrow (Carousel Style) */
+.arrow-down {
+    position: relative;
+    display: inline-block;
+	/* Reduced font-size scales everything down proportionally */
+    font-size: 0.7em;
+    width: 6em;
+    height: 6em;
+    cursor: pointer;
+    border-bottom: 0 !important; /* Removes template link border */
+}
+
+/* The Circle */
+.arrow-down:before {
+    content: '';
+    display: block;
+    width: 6em;
+    height: 6em;
+    border-radius: 100%;
+	/* Set background to transparent and add a white border */
+    background-color: transparent; 
+    border: 2px solid rgba(255, 255, 255, 0.5); 
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -3em 0 0 -3em;
+    transition: background-color 0.35s ease-in-out;
+}
+
+/* The Arrow Icon */
+.arrow-down:after {
+    content: '';
+    width: 3em;
+    height: 3em;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -1.5em 0 0 -1.5em;
+    background: url("images/arrow.svg") no-repeat center center;
+    transform: rotate(90deg); /* Points the carousel arrow downward */
+}
+
+/* Hover effect: Fills the circle with the theme color */
+.arrow-down:hover:before {
+    background-color: rgba(239, 131, 118, 0.75); /* Theme coral color */
+    border-color: transparent;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {transform: translateY(0) rotate(90deg);}
+    40% {transform: translateY(-10px) rotate(90deg);}
+    60% {transform: translateY(-5px) rotate(90deg);}
+}
+
+.arrow-down:after {
+    animation: bounce 2s infinite;
+}
