@@ -3353,3 +3353,159 @@ footer#indep{
     color: #ef8376; /* Matches your theme's hover color */
     border-bottom-color: transparent;
 }
+
+
+/* --- Brand Unified Portfolio Tiles --- */
+
+.tiles {
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+    margin: -1.5em 0 0 -1.5em; /* Adjusted spacing for a tighter grid */
+}
+
+.tiles article {
+    transition: transform 0.5s ease;
+    position: relative;
+    width: calc(33.33333% - 1.5em);
+    margin: 1.5em 0 0 1.5em;
+    overflow: hidden;
+    border-radius: 4px;
+}
+
+.tiles article > .image {
+    transition: transform 0.5s ease;
+    display: block;
+    width: 100%;
+}
+
+.tiles article > .image img {
+    display: block;
+    width: 100%;
+    height: 350px; /* Fixed height for consistency */
+    object-fit: cover;
+}
+
+/* The Dark Overlay - Matches your homepage header color */
+.tiles article.style-dark > .image:before {
+    transition: background-color 0.5s ease, opacity 0.5s ease;
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #1C0920; /* Dark tone from index.html header */
+    opacity: 0.75;
+    z-index: 1;
+}
+
+.tiles article > a {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding: 2em;
+    border-bottom: 0;
+    color: #ffffff !important;
+    z-index: 3;
+    text-align: center;
+}
+
+.tiles article > a h2 {
+    margin: 0;
+    color: #fff;
+    font-size: 1.4em;
+    font-weight: 600;
+}
+
+.tiles article > a .content {
+    transition: max-height 0.5s ease, opacity 0.5s ease;
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+}
+
+.tiles article > a .content p {
+    font-size: 0.9em;
+    margin: 1em 0 0 0;
+    text-align: center;
+    line-height: 1.5;
+}
+
+/* Hover State: Image zooms slightly and overlay turns into your brand coral */
+.tiles article:hover > .image {
+    transform: scale(1.08);
+}
+
+.tiles article:hover.style-dark > .image:before {
+    background-color: #df7366; /* Your brand color from main.css */
+    opacity: 0.9;
+}
+
+.tiles article:hover > a .content {
+    max-height: 10em;
+    opacity: 1;
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 980px) {
+    .tiles article { width: calc(50% - 1.5em); }
+}
+
+@media screen and (max-width: 736px) {
+    .tiles { margin: -1em 0 0 -1em; }
+    .tiles article { 
+        width: calc(100% - 1em); 
+        margin: 1em 0 0 1em; 
+    }
+}
+
+
+/* --- Logo-Centric Carousel Styles --- */
+
+/* Target the container for the logo */
+.carousel article .image.featured {
+    display: flex;
+    align-items: center;    /* Vertically center the logo */
+    justify-content: center; /* Horizontally center the logo */
+    height: 160px;          /* Fixed height for the logo area */
+    padding: 1.5em;         /* Prevents logos from touching edges */
+    background: #fff;
+    margin-bottom: 1.5em;   /* Space before the company name */
+    left: 0;                /* Resets previous portrait-focused offsets */
+    width: 100%;
+}
+
+/* Target the logo image itself */
+.carousel article .image.featured img {
+    height: auto;
+    max-height: 100%;       /* Scaled to fit container height */
+    width: auto;
+    max-width: 100%;        /* Scaled to fit container width */
+    object-fit: contain;    /* CRITICAL: Shows full logo without cropping */
+    border-bottom: none;    /* Removes the line used for photos */
+}
+
+.carousel article {
+    vertical-align: top;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.06); /* Softer shadow for a cleaner look */
+    border-radius: 8px;
+    background: #fff;
+    overflow: hidden;
+    padding-bottom: 2em;    /* More room for description text */
+}
+
+.carousel article h3 {
+    padding: 0 1em;         /* Keeps titles from hitting edges */
+}
+
+.carousel article p {
+    padding: 0 1.5em;       /* Keeps descriptions centered and clean */
+    font-size: 0.9em;
+}
