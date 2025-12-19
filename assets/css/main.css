@@ -3627,10 +3627,10 @@ footer#indep{
     top: 50%;
     left: 50%;
     margin: -3em 0 0 -3em;
-    transition: background-color 0.35s ease-in-out;
+    transition: all 0.35s ease-in-out;
 }
 
-/* The Arrow Icon */
+/* The Arrow Icon (Scales with parent font-size) */
 .arrow-down:after {
     content: '';
     width: 3em;
@@ -3640,6 +3640,7 @@ footer#indep{
     left: 50%;
     margin: -1.5em 0 0 -1.5em;
     background: url("images/arrow.svg") no-repeat center center;
+	background-size: contain; /* Ensures the SVG fits the smaller area */
     transform: rotate(90deg); /* Points the carousel arrow downward */
 }
 
@@ -3658,3 +3659,4 @@ footer#indep{
 .arrow-down:after {
     animation: bounce 2s infinite;
 }
+
